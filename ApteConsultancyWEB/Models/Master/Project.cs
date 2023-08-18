@@ -6,10 +6,17 @@ namespace ApteConsultancyWEB.Models.Master
     {
         [Key]
         public int ProjectId { get; set; }
+        public Company Company { get; set; }
+        public EmployeeUser Employee { get; set; }
+        public Client Client { get; set; }
+        public Architect Architect { get; set; }
+        public AssociateUser Associate { get; set; }
+
+        public int ProjectCode { get; set; }
         public string Name { get; set; }
         public string ClientWoNumber { get; set; }
-        public DateOnly Start { get; set; }
-        public DateOnly? End { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime? End { get; set; }
         public string Services { get; set; }
         public string ProjecLocation { get; set; }
         public decimal TotalFees { get; set; }

@@ -2,10 +2,10 @@
 
 namespace ApteConsultancyWEB.Models.Master
 {
-    public class Clients
+    public class Client
     {
-        public string EmployeeCode { get; set; }
-        public string EmployeeName { get; set; }
+        public int ClientId { get; set; }
+        public string ClientName { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string AddressLine3 { get; set; }
@@ -14,11 +14,16 @@ namespace ApteConsultancyWEB.Models.Master
         public string Country { get; set; }
         public int PostalCode { get; set; }
         public string ContactPerson1 { get; set; }
-        public string Relation1 { get; set; }
+        public string Designation1 { get; set; }
         public int MobileNumber1 { get; set; }
+        public string Email1 { get; set; }
         public string ContactPerson2 { get; set; }
-        public string Relation2 { get; set; }
+        public string Designation2 { get; set; }
         public int MobileNumber2 { get; set; }
+        public string Email2 { get; set; }
+        public string PanNumber { get; set; }
+        public string GstNUmber { get; set; }
+
 
 
     }

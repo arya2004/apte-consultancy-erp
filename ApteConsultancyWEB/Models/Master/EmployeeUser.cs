@@ -23,8 +23,8 @@ namespace ApteConsultancyWEB.Models.Master
         public int ExpBeforeJoiningM { get; set; }
         public string Pan { get; set; }
         public string UID { get; set; }
-        public DateOnly BirthDate { get; set; }
-        public DateOnly Anniversary { get; set; }
+        public DateTime BirthDate { get; set; }
+        public DateTime Anniversary { get; set; }
         public string BankName { get; set; }
         public string BranchNam { get; set; }
         public string BranchAddress { get; set; }

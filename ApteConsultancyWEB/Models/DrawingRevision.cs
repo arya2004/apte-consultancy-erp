@@ -2,6 +2,8 @@
 {
     public class DrawingRevision
     {
-        public int MyProperty { get; set; }
+        public int RevisionNumber { get; set; }
+        public DateTime RevisionDate { get; set; }
+        public string RevisionDescription { get; set; }
     }
 }

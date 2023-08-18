@@ -1,13 +1,18 @@
-﻿namespace ApteConsultancyWEB.Models
+﻿using ApteConsultancyWEB.Models.Master;
+
+namespace ApteConsultancyWEB.Models
 {
     public class Drawing
     {
         public int DrawingId { get; set; }
+        public Project Project { get; set; }
+        public Company Company { get; set; }
+        public EmployeeUser Employee { get; set; }
+        public Client Client { get; set; }
+        public Architect Architect { get; set; }
         public int DrawingNumber { get; set; }
-        public int DrawingTitle { get; set; }
-        public DateOnly DrawingDate { get; set; }
-        public int RevisionNumber { get; set; }
-        public DateOnly RevisionDate { get; set; }
+        public ICollection<DrawingRevision> DrawingRevisions { get; set; }
+        
 
     }
 }
