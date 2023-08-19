@@ -10,7 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentityCore<EmployeeUser>().AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentityCore<AssociateUser>().AddEntityFrameworkStores<AppDbContext>();
+
 builder.Services.AddRazorPages();
 
 

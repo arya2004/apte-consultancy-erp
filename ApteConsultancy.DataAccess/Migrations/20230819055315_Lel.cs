@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ApteConsultancy.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class identityTable : Migration
+    public partial class Lel : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -156,6 +156,93 @@ namespace ApteConsultancy.DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Associate",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddressLine1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddressLine2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddressLine3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PostalCode = table.Column<int>(type: "int", nullable: false),
+                    ContactPerson1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Designation1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MobileNumber1 = table.Column<int>(type: "int", nullable: false),
+                    Email1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContactPerson2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Designation2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MobileNumber2 = table.Column<int>(type: "int", nullable: false),
+                    Email2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PanNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GstNUmber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Bank = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BranchName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BranchAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AccountNumber = table.Column<int>(type: "int", nullable: false),
+                    ISFCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AccountType = table.Column<int>(type: "int", nullable: false),
+                    IsFreeLancer = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Associate", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Associate_AspNetUsers_Id",
+                        column: x => x.Id,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EMployee",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    EmployeeCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddressLine1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddressLine2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddressLine3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PostalCode = table.Column<int>(type: "int", nullable: false),
+                    ContactPerson1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Relation1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MobileNumber1 = table.Column<int>(type: "int", nullable: false),
+                    ContactPerson2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Relation2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MobileNumber2 = table.Column<int>(type: "int", nullable: false),
+                    ExpBeforeJoiningY = table.Column<int>(type: "int", nullable: false),
+                    ExpBeforeJoiningM = table.Column<int>(type: "int", nullable: false),
+                    Pan = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Anniversary = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BankName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BranchNam = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BranchAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AccountNumber = table.Column<int>(type: "int", nullable: false),
+                    ISFCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AccountType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MonthlySalary = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EMployee", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_EMployee_AspNetUsers_Id",
+                        column: x => x.Id,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -213,6 +300,12 @@ namespace ApteConsultancy.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Associate");
+
+            migrationBuilder.DropTable(
+                name: "EMployee");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

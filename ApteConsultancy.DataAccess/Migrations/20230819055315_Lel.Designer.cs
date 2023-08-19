@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApteConsultancy.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230818203124_identityTable")]
-    partial class identityTable
+    [Migration("20230819055315_Lel")]
+    partial class Lel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -140,6 +140,8 @@ namespace ApteConsultancy.DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -227,6 +229,179 @@ namespace ApteConsultancy.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ApteConsultancy.Models.Master.AssociateUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<int>("AccountNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AccountType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AddressLine1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Bank")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BranchAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BranchName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactPerson1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactPerson2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Designation1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Designation2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GstNUmber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ISFCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsFreeLancer")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MobileNumber1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MobileNumber2")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PanNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PostalCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("Associate", (string)null);
+                });
+
+            modelBuilder.Entity("ApteConsultancy.Models.Master.EmployeeUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<int>("AccountNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AccountType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AddressLine3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Anniversary")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BankName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BranchAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BranchNam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactPerson1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactPerson2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployeeCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployeeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ExpBeforeJoiningM")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ExpBeforeJoiningY")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ISFCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MobileNumber1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MobileNumber2")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MonthlySalary")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Pan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PostalCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Relation1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Relation2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("EMployee", (string)null);
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -274,6 +449,24 @@ namespace ApteConsultancy.DataAccess.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ApteConsultancy.Models.Master.AssociateUser", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithOne()
+                        .HasForeignKey("ApteConsultancy.Models.Master.AssociateUser", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ApteConsultancy.Models.Master.EmployeeUser", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithOne()
+                        .HasForeignKey("ApteConsultancy.Models.Master.EmployeeUser", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

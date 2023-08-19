@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApteConsultancy.Models.Master
 {
     public class Architect
     {
+        [Key]
         public string ArchitectId { get; set; }
         public string CompanyName { get; set; }
         public string AddressLine1 { get; set; }
