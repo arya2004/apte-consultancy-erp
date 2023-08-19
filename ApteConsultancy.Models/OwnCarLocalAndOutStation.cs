@@ -5,8 +5,8 @@ namespace ApteConsultancy.Models
     public class OwnCarLocalAndOutStation
     {
         public int OwnCarLocalAndOutStationId { get; set; }
-        public Project Project { get; set; }
-        public EmployeeUser Employee { get; set; }
+        public Project? Project { get; set; }
+        public EmployeeUser? Employee { get; set; }
         public decimal PetrolRate { get; set; }
         public decimal CarAvgKMPL { get; set; }
         public decimal DistanceTravelled { get; set; }
