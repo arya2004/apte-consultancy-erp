@@ -8,5 +8,8 @@ namespace ApteConsultancy.Utility
 {
     public class SD
     {
+        public const string Role_EMPLOYEE = "employee";
+        public const string Role_ASSOCIATE = "associate";
+        public const string Role_Admin  = "admin";
     }
 }

@@ -12,7 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 
 
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>().AddDefaultUI(); 
 builder.Services.AddIdentityCore<EmployeeUser>().AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddIdentityCore<AssociateUser>().AddEntityFrameworkStores<AppDbContext>();
 

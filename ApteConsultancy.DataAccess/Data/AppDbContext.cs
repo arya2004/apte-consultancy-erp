@@ -12,14 +12,14 @@ namespace ApteConsultancy.DataAccess.Data
         }
         public DbSet<EmployeeUser> EmployeeUsers { get; set; }
         public DbSet<AssociateUser> AssociateUsers { get; set; }
-        //public DbSet<Architect> Architects { get; set; }
-        //public DbSet<Client> Clients { get; set; }
-        //public DbSet<Company> Companies { get; set; }
-        //public DbSet<Project> Projects { get; set; }
-        //public DbSet<Drawing> Drawings { get; set; }
-        //public DbSet<DrawingRevision> DrawingRevisions { get; set; }
-        //public DbSet<EmployeeTimeSheet> EmployeeTimeSheets { get; set; }
-        //public DbSet<OwnCarLocalAndOutStation> OwnCarLocalAndOutStations { get; set; }
+        public DbSet<Architect> Architects { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Drawing> Drawings { get; set; }
+        public DbSet<DrawingRevision> DrawingRevisions { get; set; }
+        public DbSet<EmployeeTimeSheet> EmployeeTimeSheets { get; set; }
+        public DbSet<OwnCarLocalAndOutStation> OwnCarLocalAndOutStations { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

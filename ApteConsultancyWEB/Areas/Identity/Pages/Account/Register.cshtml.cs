@@ -11,12 +11,15 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using ApteConsultancy.Models.Master;
+using ApteConsultancy.Utility;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
@@ -30,9 +33,11 @@ namespace ApteConsultancyWEB.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly RoleManager<IdentityRole> _roleManager;    
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
@@ -44,6 +49,7 @@ namespace ApteConsultancyWEB.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager;
         }
 
         /// <summary>
@@ -98,11 +104,57 @@ namespace ApteConsultancyWEB.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public string? Role { get; set; }
+            [ValidateNever]
+            public IEnumerable<SelectListItem> RoleList { get; set; }
+
+            public string? CompanyName { get; set; }
+            public string? AddressLine1 { get; set; }
+            public string? AddressLine2 { get; set; }
+            public string? AddressLine3 { get; set; }
+            public string? City { get; set; }
+            public string? State { get; set; }
+            public string? Country { get; set; }
+            public int PostalCode { get; set; }
+            public string? ContactPerson1 { get; set; }
+            public string? Designation1 { get; set; }
+            public int MobileNumber1 { get; set; }
+            public string? Email1 { get; set; }
+            public string? ContactPerson2 { get; set; }
+            public string? Designation2 { get; set; }
+            public int MobileNumber2 { get; set; }
+            public string? Email2 { get; set; }
+            public string? PanNumber { get; set; }
+            public string? GstNUmber { get; set; }
+            public string? Bank { get; set; }
+            public string? BranchName { get; set; }
+            public string? BranchAddress { get; set; }
+            public int AccountNumber { get; set; }
+            public string? ISFCode { get; set; }
+            public int AccountType { get; set; }
+            public bool IsFreeLancer { get; set; }
         }
 
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            if (!_roleManager.RoleExistsAsync(SD.Role_Admin).GetAwaiter().GetResult())
+            {
+               await _roleManager.CreateAsync(new IdentityRole(SD.Role_EMPLOYEE));
+                await _roleManager.CreateAsync(new IdentityRole(SD.Role_ASSOCIATE));
+                await _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin));
+            }
+            Input = new()
+            {
+                RoleList = _roleManager.Roles.Select(x => x.Name).Select(i => new SelectListItem
+                {
+                    Text = i,
+                    Value = i
+                })
+
+            };
+
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -114,9 +166,17 @@ namespace ApteConsultancyWEB.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                if(!String.IsNullOrEmpty(Input.Role))
+                {
+                    await _userManager.AddToRoleAsync(user, Input.Role);
+                }
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
+                user.Country = Input.Country;
+                user.CompanyName = Input.CompanyName;
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
@@ -155,11 +215,11 @@ namespace ApteConsultancyWEB.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private EmployeeUser CreateUser()
+        private AssociateUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<EmployeeUser>();
+                return Activator.CreateInstance<AssociateUser>();
             }
             catch
             {
