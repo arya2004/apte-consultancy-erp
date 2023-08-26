@@ -1,0 +1,41 @@
+﻿@using ApteConsultancy.Models.Master;
+@model List<Company>
+      <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Company" asp-action="Create">New</a>
+<div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Companies</h5>
+               
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Director </th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Landline</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                    @foreach(var obj in Model.OrderBy(u => u.Name))
+                    {
+                        <tr>
+                    <th scope="row">1</th>
+                    <td>@obj.Name</td>
+                    <td>@obj.DirectorName</td>
+                    <td>@obj.DirectorEmail</td>
+                    <td>@obj.LandLine</td>
+                    <td><a asp-area="Admin" asp-controller="Company" asp-action="Edit" asp-route-id="@obj.CompanyId" type="button" class="btn btn-warning">Edit</a></td>
+                    <td><a asp-area="Admin" asp-controller="Company" asp-action="Delete" asp-route-id="@obj.CompanyId" type="button" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                    }
+                  
+                  
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+            </div>
+          </div>

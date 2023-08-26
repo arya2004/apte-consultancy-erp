@@ -7,6 +7,7 @@ namespace ApteConsultancy.Models.Master
         [Key]
         public int CompanyId { get; set; }
         public string? CompanyCode { get; set; }
+        [Required]
         public string? Name { get; set; }
         public string? DirectorName { get; set; }
         public int DirectorEmployeeCode { get; set; }

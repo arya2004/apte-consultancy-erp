@@ -1,5 +1,6 @@
 ﻿using ApteConsultancy.Models;
 using ApteConsultancy.Models.Master;
+using ApteConsultancyWEB.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,10 +17,18 @@ namespace ApteConsultancy.DataAccess.Data
         public DbSet<Client> Clients { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Project> Projects { get; set; }
+        //end master
+        public DbSet<Associate_Fee> Associate_Fees { get; set; }
+        public DbSet<AssociateWorkerOrders>  AssociateWorkerOrders { get; set; }
         public DbSet<Drawing> Drawings { get; set; }
         public DbSet<DrawingRevision> DrawingRevisions { get; set; }
+        public DbSet<Employee_Attendance> Employee_Attendances { get; set; }
         public DbSet<EmployeeTimeSheet> EmployeeTimeSheets { get; set; }
+        public DbSet<GSTInvoice> GSTInvoices { get; set; }
         public DbSet<OwnCarLocalAndOutStation> OwnCarLocalAndOutStations { get; set; }
+        public DbSet<ProformaInvoice> ProformaInvoices { get; set; }
+        public DbSet<ProjectFees> ProjectFees { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
