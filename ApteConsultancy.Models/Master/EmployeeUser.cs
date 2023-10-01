@@ -4,7 +4,7 @@ namespace ApteConsultancy.Models.Master
 {
     public class EmployeeUser : IdentityUser
     {
-        public string? EmployeeCode { get; set; }
+        public string? EmployeeCode { get; set; } 
         public string? EmployeeName { get; set; }
         public string? AddressLine1 { get; set; }
         public string? AddressLine2 { get; set; }

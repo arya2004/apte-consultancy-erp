@@ -27,13 +27,13 @@ namespace ApteConsultancyWEB.Areas.Admin.Controllers
 
         public async Task<IActionResult> Privacy()
         {
-            var cusomer = new EmployeeUser() { Email = "cutomer1@hotmail.com", UserName = "Tom", EmployeeName = "Java"};
+            //var cusomer = new EmployeeUser() { Email = "cutomer1@hotmail.com", UserName = "Tom", EmployeeName = "Java"};
 
-            var result = await _userManagerEMpl.CreateAsync(cusomer, "Password01!");
+            //var result = await _userManagerEMpl.CreateAsync(cusomer, "Password01!");
 
-            var professional = new AssociateUser() { Email = "pro1@hotmail.com", UserName = "Jack", Designation2 = "CTO" };
+            //var professional = new AssociateUser() { Email = "pro1@hotmail.com", UserName = "Jack", Designation2 = "CTO" };
 
-            var result2 = await _userManagerAssociate.CreateAsync(professional, "Password01!");
+            //var result2 = await _userManagerAssociate.CreateAsync(professional, "Password01!");
             return View();
         }
 

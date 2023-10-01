@@ -5,7 +5,7 @@ namespace ApteConsultancy.Models.Master
     public class AssociateUser : IdentityUser
     {
         
-        public string? CompanyName { get; set; }
+        public string? CompanyName { get; set; } = Guid.NewGuid().ToString();
         public string? AddressLine1 { get; set; }
         public string? AddressLine2 { get; set; }
         public string? AddressLine3 { get; set; }

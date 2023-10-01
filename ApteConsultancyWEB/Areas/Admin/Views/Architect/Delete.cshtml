@@ -1,0 +1,177 @@
+﻿@using ApteConsultancy.Models.Master;
+@model Architect
+
+              <a type="button" class="btn btn-warning" asp-area="Admin" asp-controller="Architect" asp-action="Index">Back</a>
+<div class="pagetitle">
+    <h1>Delete Architect</h1>
+
+</div><!-- End Page Title -->
+              <!-- General Form Elements -->
+              <form method="post">
+                <input asp-for="ArchitectId" hidden />
+                
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Company Name</label>
+                       <span asp-validation-for="CompanyName" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="CompanyName " type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Address Line 1</label>
+                       <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="AddressLine1" type="text" class="form-control">
+                  </div>
+                </div>
+                 <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Address Line 2</label>
+                       <span asp-validation-for="AddressLine2" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="AddressLine2" type="text" class="form-control">
+                  </div>
+                </div>
+
+                   <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Address Line 3</label>
+                       <span asp-validation-for="AddressLine3" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="AddressLine3" type="text" class="form-control">
+                  </div>
+                </div>
+
+
+                   <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">City</label>
+                       <span asp-validation-for="City" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="City" type="text" class="form-control">
+                  </div>
+                </div>
+
+                
+                   <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">State</label>
+                       <span asp-validation-for="State" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="State" type="text" class="form-control">
+                  </div>
+                </div>
+
+                
+                   <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Country</label>
+                       <span asp-validation-for="Country" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="Country" type="text" class="form-control">
+                  </div>
+                </div>
+
+                
+                 <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">PostalCode</label>
+                       <span asp-validation-for="PostalCode" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="PostalCode" type="number" class="form-control">
+                  </div>
+                </div>
+
+
+                                   <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">ContactPerson 1</label>
+                       <span asp-validation-for="ContactPerson1" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="ContactPerson1" type="text" class="form-control">
+                  </div>
+                </div>
+
+                
+                                   <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Designation 1</label>
+                       <span asp-validation-for="Designation1" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="Designation1" type="text" class="form-control">
+                  </div>
+                </div>
+
+                 <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">MobileNumber1</label>
+                       <span asp-validation-for="MobileNumber1" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="MobileNumber1" type="number" class="form-control">
+                  </div>
+                </div>
+
+                    <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">Email1</label>
+                       <span asp-validation-for="Email1" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="Email1" type="email" class="form-control">
+                  </div>
+                </div>
+
+                                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">ContactPerson 2</label>
+                       <span asp-validation-for="ContactPerson2" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="ContactPerson2" type="text" class="form-control">
+                  </div>
+                </div>
+
+                
+                                   <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Designation 2</label>
+                       <span asp-validation-for="Designation2" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="Designation2" type="text" class="form-control">
+                  </div>
+                </div>
+
+                 <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">MobileNumber 2</label>
+                       <span asp-validation-for="MobileNumber2" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="MobileNumber2" type="number" class="form-control">
+                  </div>
+                </div>
+
+                    <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">Email2</label>
+                       <span asp-validation-for="Email2" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="Email2" type="email" class="form-control">
+                  </div>
+                </div>
+
+              
+               
+                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Pan Number</label>
+                       <span asp-validation-for="PanNumber" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="PanNumber" type="text" class="form-control">
+                  </div>
+          
+             
+                    <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">GST Number</label>
+                       <span asp-validation-for="GstNUmber" class="text-danger"></span>
+                  <div class="col-sm-10">
+                    <input asp-for="GstNUmber" type="text" class="form-control">
+                  </div>
+                
+               <div class="row mb-3 mt-3">
+                  <label class="col-sm-2 col-form-label">Submit Button</label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+        //client side validation
+    }
+}

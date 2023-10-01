@@ -5,7 +5,7 @@ namespace ApteConsultancy.Models.Master
     public class Project
     {
         [Key]
-        public int ProjectId { get; set; }
+        public string? ProjectId { get; set; } = Guid.NewGuid().ToString();
         public Company?  Company { get; set; }
         public EmployeeUser? Employee { get; set; }
         public Client? Client { get; set; }

@@ -6,7 +6,7 @@ namespace ApteConsultancy.Models.Master
 {
     public class Client
     {
-        public int ClientId { get; set; }
+        public string? ClientId { get; set; } = Guid.NewGuid().ToString();
         public string? ClientName { get; set; }
 
         public string? AddressLine1 { get; set; }
