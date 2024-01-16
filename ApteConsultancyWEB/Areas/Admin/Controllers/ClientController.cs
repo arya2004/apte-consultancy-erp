@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApteConsultancyWEB.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ClientController : Controller
     {   
         private readonly AppDbContext _appDbContext;
@@ -48,6 +49,46 @@ namespace ApteConsultancyWEB.Areas.Admin.Controllers
                 return NotFound();
             }
             return View(client);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Client client)
+        {
+            if (ModelState.IsValid)
+            {
+                _appDbContext.Clients.Update(client);
+                _appDbContext.SaveChanges();
+                return RedirectToAction("Index", "Client");
+            }
+            return View(client);
+        }
+
+        public async Task<IActionResult> Delete(string? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+            Client? client = await _appDbContext.Clients.FirstOrDefaultAsync();
+            if(client == null)
+            {
+                return NotFound();
+            }
+            return View(client);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeletePOST(string? id)
+        {
+            Client? client = await _appDbContext.Clients.FirstOrDefaultAsync(u => u.ClientId == id);
+            if(client == null)
+            {
+                return NotFound();
+            }
+            _appDbContext.Clients.Remove(client);
+            await _appDbContext.SaveChangesAsync();
+            return RedirectToAction("Index", "Client");
         }
 
     }

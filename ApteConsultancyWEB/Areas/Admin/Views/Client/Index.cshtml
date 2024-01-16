@@ -1,0 +1,42 @@
+﻿@using ApteConsultancy.Models.Master;
+@model List<Client>
+
+<a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Client" asp-action="Create">New</a>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Clients</h5>
+
+        <!-- Default Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Company Name</th>
+                    <th scope="col">Contact Person </th>
+                    <th scope="col">Email</th>
+                    <th scope="col">GstNUmber</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <th scope="row">1</th>
+                    
+                        <td>@obj.ContactPerson1</td>
+                        <td>@obj.Email1</td>
+                        <td>@obj.GstNUmber</td>
+                        <td><a asp-area="Admin" asp-controller="Client" asp-action="Edit" asp-route-id="@obj.ClientId" type="button" class="btn btn-warning">Edit</a></td>
+                        <td><a asp-area="Admin" asp-controller="Client" asp-action="Delete" asp-route-id="@obj.ClientId" type="button" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <!-- End Default Table Example -->
+    </div>
+</div>
