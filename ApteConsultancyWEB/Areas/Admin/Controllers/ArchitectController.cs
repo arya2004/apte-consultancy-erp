@@ -32,7 +32,9 @@ namespace ApteConsultancyWEB.Areas.Admin.Controllers
                 await _appDbContext.Architects.AddAsync(company);
                 await _appDbContext.SaveChangesAsync();
                 return RedirectToAction("Index", "Architect");
+                
             }
+                
             return View(company);
 
         }
